@@ -258,7 +258,12 @@
                     if (content === '' || content === 'none') return;
 
                     var className = util.uid();
-                    clone.className = clone.className + ' ' + className;
+                    try{
+                        clone.className = clone.className + ' ' + className;
+                    }catch(err){
+                        // throwing error "trying to set readonly property classname in some nodes"
+                    }
+                    
                     var styleElement = document.createElement('style');
                     styleElement.appendChild(formatPseudoElementStyle(className, element, style));
                     clone.appendChild(styleElement);
