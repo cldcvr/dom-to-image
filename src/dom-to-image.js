@@ -262,6 +262,8 @@
                         clone.className = clone.className + ' ' + className;
                     }catch(err){
                         // throwing error "trying to set readonly property classname in some nodes"
+                        // if error occured, return that node
+                        return;
                     }
                     
                     var styleElement = document.createElement('style');
